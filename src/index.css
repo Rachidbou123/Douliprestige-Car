@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #1A1A1A;
+    --color-bg: #F5F2EB;
+    --color-border: #EAE5D9;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Focus outlines for accessibility */
+  *:focus-visible {
+    outline: 2px solid #1A1A1A;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  
+  /* RTL specific utilities if tailwind doesn't cover all */
+  [dir="rtl"] .ltr\:ml-2 { margin-left: 0; }
+  [dir="rtl"] .ltr\:mr-2 { margin-right: 0; }
+}
